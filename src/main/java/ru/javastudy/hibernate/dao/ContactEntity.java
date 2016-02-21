@@ -9,7 +9,8 @@ public class ContactEntity {
     private int id;
     private String firstName;
     private String lastName;
-    private Date birthDate;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private java.util.Date birthDate;
     private int version;
 
     @Id
@@ -44,11 +45,11 @@ public class ContactEntity {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "birth_date", nullable = true, insertable = true, updatable = true)
-    public Date getBirthDate() {
+    public java.util.Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(java.util.Date birthDate) {
         this.birthDate = birthDate;
     }
 
