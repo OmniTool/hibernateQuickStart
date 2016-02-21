@@ -16,11 +16,11 @@ public class AppMain {
         ContactEntity contactEntity = new ContactEntity();
 
         contactEntity.setBirthDate(new java.util.Date());
-        contactEntity.setFirstName("Nick");
-        contactEntity.setLastName("VN");
+        contactEntity.setFirstName("Black");
+        contactEntity.setLastName("SU");
 
         session.save(contactEntity);
-        session.getTransaction().commit();
+        session.getTransaction().commit(); // вылетит эксепшн при попытке записать уже существующие данные
 
         session.close();
 
