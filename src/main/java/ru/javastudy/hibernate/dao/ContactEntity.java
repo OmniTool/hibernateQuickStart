@@ -13,7 +13,7 @@ public class ContactEntity {
     private int version;
 
     @Id
-    @Column(name = "ID", nullable = false)
+    @Column(name = "ID", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
     }
@@ -23,7 +23,7 @@ public class ContactEntity {
     }
 
     @Basic
-    @Column(name = "first_name", nullable = false, length = 60)
+    @Column(name = "first_name", nullable = false, insertable = true, updatable = true, length = 60)
     public String getFirstName() {
         return firstName;
     }
@@ -33,7 +33,7 @@ public class ContactEntity {
     }
 
     @Basic
-    @Column(name = "last_name", nullable = false, length = 40)
+    @Column(name = "last_name", nullable = false, insertable = true, updatable = true, length = 40)
     public String getLastName() {
         return lastName;
     }
@@ -42,8 +42,8 @@ public class ContactEntity {
         this.lastName = lastName;
     }
 
-    @Basic
-    @Column(name = "birth_date", nullable = true)
+    @Temporal(TemporalType.DATE)
+    @Column(name = "birth_date", nullable = true, insertable = true, updatable = true)
     public Date getBirthDate() {
         return birthDate;
     }
@@ -52,8 +52,8 @@ public class ContactEntity {
         this.birthDate = birthDate;
     }
 
-    @Basic
-    @Column(name = "version", nullable = false)
+    @Version
+    @Column(name = "version", nullable = false, insertable = true, updatable = true)
     public int getVersion() {
         return version;
     }

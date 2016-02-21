@@ -18,7 +18,9 @@ public class ContactHobbyDetailEntityPK implements Serializable {
         this.contactId = contactId;
     }
 
-    @Column(name = "hobby_id", nullable = false, length = 20)
+    //NOTE that autocreate was insertable = true, updatable = true, but need both false !!!
+
+    @Column(name = "hobby_id", nullable = false, insertable = false, updatable = false, length = 20)
     @Id
     public String getHobbyId() {
         return hobbyId;
