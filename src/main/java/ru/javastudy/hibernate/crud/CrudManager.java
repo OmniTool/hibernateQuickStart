@@ -45,7 +45,7 @@ package ru.javastudy.hibernate.crud;
                 }
                 e.printStackTrace();
             } finally {
-                //session.flush();
+                session.flush();
                 session.close();
             }
         }

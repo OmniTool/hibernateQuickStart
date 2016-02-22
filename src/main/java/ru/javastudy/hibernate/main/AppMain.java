@@ -39,8 +39,8 @@ public class AppMain {
 
         // Add new user
         ContactEntity contactEntity = new ContactEntity();
-        contactEntity.setFirstName("Daniel6");
-        contactEntity.setLastName("NikoJdbc6");
+        contactEntity.setFirstName("Daniel9");
+        contactEntity.setLastName("NikoJdbc9");
         try {
             java.util.Date birthDate = new SimpleDateFormat("yyyy-MM-dd").parse("1986-01-02");
             contactEntity.setBirthDate(birthDate);
@@ -48,24 +48,31 @@ public class AppMain {
             e.printStackTrace();
         }
 
+        // Get all contacts
+        for (ContactEntity contact : crudManager.getAllContacts()) {
+            System.out.println(contact.getId() + " : " + contact.getFirstName() + " " + contact.getLastName());
+        }
+
         // Add contact
         crudManager.addContact(contactEntity);
 
+        // Get contact by id
+        ContactEntity contactById = crudManager.getContactById(8);
+        System.out.println(contactById.getId() + " : " + contactById.getFirstName() + " " + contactById.getLastName());
         // Update contact
-        contactEntity.setLastName("Niko");
+        contactById.setLastName("Niko2");
         //contactEntity.setId(6);
-        crudManager.updateContact(contactEntity);
+        crudManager.updateContact(contactById);
 
         // Delete contact
-        //dao.deleteUser(6);
+        crudManager.deleteContact(12);
 
         // Get all contacts
         for (ContactEntity contact : crudManager.getAllContacts()) {
-            System.out.println(contact);
+            System.out.println(contact.getId() + " : " + contact.getFirstName() + " " + contact.getLastName());
         }
 
-        // Get user by id
-        System.out.println(crudManager.getContactById(1));
+
 
 
 
